@@ -3,12 +3,9 @@ import { useState } from 'react';
 
 const AutoCorrectTextArea = () => {
     const [text, setText] = useState("");
-
-  return (
-    <div className="App">
-    <textarea
-      value={text}
-      onChange={(e) => {
+    
+    const AutoCorrection = (e) => {
+         {
         setText(e.target.value);
         const strArr = text.split(" ");
         const obj = {
@@ -24,7 +21,15 @@ const AutoCorrectTextArea = () => {
           }
           return true;
         });
-      }}
+      }
+    }
+
+  return (
+    <div className="App">
+      <h1>Auto Correction</h2>
+    <textarea
+      value={text}
+      onChange={() =>AutoCorrection}
     />
   </div>
   )
